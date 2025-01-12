@@ -15,9 +15,7 @@ createRoot(document.getElementById("root")!).render(
     <NewLayout>
       <div className="container mx-auto">
         <ImageCarousel />
-        <div className="mt-8">
-          <Home />
-        </div>
+        <Home />
       </div>
     </NewLayout>
   </StrictMode>

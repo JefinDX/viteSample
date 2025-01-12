@@ -1,6 +1,9 @@
 // import ImageCarousel from "./components/ImageCarousel";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Img } from "react-image";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ImageGrid from "./components/ImageGrid";
+import SurveyForm from "./components/SurveyForm";
 
 const images = [
   {
@@ -69,24 +72,40 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100">
       {/* <ImageCarousel /> */}
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-10">
-          {images.map((image, index) => (
-            <Card key={index} className="overflow-hidden">
-              <CardContent className="p-2 w-36 h-36">
-                <Img
-                  src={image.src}
-                  alt={image.alt}
-                  // width={300}
-                  // height={200}
-                  className="w-auto h-auto"
-                />
-              </CardContent>
-              <CardFooter className="p-4"></CardFooter>
-            </Card>
-          ))}
-        </div>
-      </div>
+
+      <Tabs defaultValue="account">
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="account">Ads</TabsTrigger>
+          <TabsTrigger value="password">Surveys</TabsTrigger>
+          <TabsTrigger value="rewards">Deals</TabsTrigger>
+        </TabsList>
+        <TabsContent value="account">
+          <div className="container mx-auto px-4 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-10">
+              {images.map((image, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <CardContent className="p-2 w-36 h-36">
+                    <Img
+                      src={image.src}
+                      alt={image.alt}
+                      // width={300}
+                      // height={200}
+                      className="w-auto h-auto"
+                    />
+                  </CardContent>
+                  <CardFooter className="p-4"></CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </TabsContent>
+        <TabsContent value="password">
+          <SurveyForm />
+        </TabsContent>
+        <TabsContent value="rewards">
+          <ImageGrid />
+        </TabsContent>
+      </Tabs>
     </main>
   );
 }
