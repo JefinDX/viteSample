@@ -1,7 +1,7 @@
 import { Img } from "react-image";
 import SearchBar from "./SearchBar";
 import ProfileIcon from "./ProfileIcon";
-import logo from "../assets/IMG_0685.png";
+import logo from "public/IMG_0685.png";
 import Home from "../app_page";
 
 export default function NavBar() {
